@@ -5,21 +5,7 @@
 //  Created by Ismaël Bresson on 22/05/2022.
 //
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <string.h>
-
-bool letter_in_word(char* word,char letter)
-{
-    int length = strlen(word);
-    for(int i=0;i<length;i++)
-    {
-        if(word[i]== letter)
-            return true;
-    }
-    return false;
-}
+#include "lib.h"
 
 int main()
 {
@@ -29,7 +15,8 @@ int main()
     char userLetter = 0;
     char usedLetters[tryAllowed];
     memset(usedLetters, 0,tryAllowed * sizeof(char));//initialisation de la memoire
-    
+    char drawnWord[strlen(word)];
+    memset(drawnWord,'_',strlen(word));//initialisation par les tiret
     
     do
     {
@@ -39,13 +26,16 @@ int main()
          
         
         if (letter_in_word(word,userLetter))
-            printf("ok \n");
+            letter_replace0 (word,userLetter,drawnWord);
         else
+            if (!letter_in_word(usedLetters, userLetter))
         {
             usedLetters[try] = userLetter;
             try++;
         }
-        printf("%s \n\n",usedLetters);
+        printf("%s \n",usedLetters);
+        printf("%s \n\n",drawnWord);
+        
     }
     while (try<10);
     

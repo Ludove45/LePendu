@@ -9,5 +9,12 @@
 #define lib_h
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
+
+bool letter_in_word(char*,char);
+void letter_replace0 (char*,char,char*);
+
 
 #endif /* lib_h */
