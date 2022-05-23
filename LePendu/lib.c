@@ -27,3 +27,11 @@ void letter_replace0 (char* word,char letter,char* board)
             board[i] = letter;
     }
 }
+bool word_complet (char* board)
+{
+    int length = strlen(board);
+    for(int i=0;i<length;i++)
+        if (board[i]== '_')
+            return false;
+    return true;
+}

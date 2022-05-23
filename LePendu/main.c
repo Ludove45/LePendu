@@ -9,7 +9,7 @@
 
 int main()
 {
-    char* word = "pendu";
+    char* word = "rhinoceros";
     int try = 0;
     int tryAllowed = 10;
     char userLetter = 0;
@@ -36,9 +36,15 @@ int main()
         printf("%s \n",usedLetters);
         printf("%s \n\n",drawnWord);
         
+        if (word_complet(drawnWord))
+            break;
     }
     while (try<10);
     
+    if(word_complet(drawnWord))
+       printf("vous avez gagné !!");
+    else
+       printf("vous avez perdu !!");
     
     printf("\n");
     return 0;
