@@ -16,6 +16,8 @@
 bool letter_in_word(char*,char);
 void letter_replace0 (char*,char,char*);
 bool word_complet (char*);
-
+void printall (char*, char*,int,int);
+void printResult (bool);
+void config (char*,int*);
 
 #endif /* lib_h */

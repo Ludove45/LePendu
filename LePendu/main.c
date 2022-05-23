@@ -9,21 +9,26 @@
 
 int main()
 {
-    char* word = "rhinoceros";
-    int try = 0;
+    char word[20] = "ats";
     int tryAllowed = 10;
+
+    while (1)
+    {
+    config (word,&tryAllowed);
+    
+    int try = 0;
     char userLetter = 0;
     char usedLetters[tryAllowed];
     memset(usedLetters, 0,tryAllowed * sizeof(char));//initialisation de la memoire
     char drawnWord[strlen(word)];
     memset(drawnWord,'_',strlen(word));//initialisation par les tiret
     
+    
     do
     {
         // saisi utilisateur
         printf("votre lettre :");
         scanf(" %c",&userLetter);
-         
         
         if (letter_in_word(word,userLetter))
             letter_replace0 (word,userLetter,drawnWord);
@@ -33,19 +38,20 @@ int main()
             usedLetters[try] = userLetter;
             try++;
         }
-        printf("%s \n",usedLetters);
-        printf("%s \n\n",drawnWord);
+        
+        if (userLetter == '#') // recomancé la partie
+            break;
+        
+        printall(drawnWord, usedLetters, try, tryAllowed);
         
         if (word_complet(drawnWord))
             break;
     }
-    while (try<10);
+    while (try<tryAllowed);
     
-    if(word_complet(drawnWord))
-       printf("vous avez gagné !!");
-    else
-       printf("vous avez perdu !!");
-    
+    printResult(word_complet(drawnWord));
+ 
+}
     printf("\n");
     return 0;
 }
