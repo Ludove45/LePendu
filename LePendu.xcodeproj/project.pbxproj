@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C03BD46283A532B00FC89FB /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 2C03BD45283A532B00FC89FB /* main.c */; };
+		2CEE3C82283B5D2900BA615E /* lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 2CEE3C81283B5D2900BA615E /* lib.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		2C03BD42283A532B00FC89FB /* LePendu */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LePendu; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C03BD45283A532B00FC89FB /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		2CEE3C80283B5D2900BA615E /* lib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lib.h; sourceTree = "<group>"; };
+		2CEE3C81283B5D2900BA615E /* lib.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = lib.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +60,8 @@
 		2C03BD44283A532B00FC89FB /* LePendu */ = {
 			isa = PBXGroup;
 			children = (
+				2CEE3C80283B5D2900BA615E /* lib.h */,
+				2CEE3C81283B5D2900BA615E /* lib.c */,
 				2C03BD45283A532B00FC89FB /* main.c */,
 			);
 			path = LePendu;
@@ -120,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C03BD46283A532B00FC89FB /* main.c in Sources */,
+				2CEE3C82283B5D2900BA615E /* lib.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

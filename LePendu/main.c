@@ -25,19 +25,29 @@ int main()
 {
     char* word = "pendu";
     int try = 0;
+    int tryAllowed = 10;
     char userLetter = 0;
+    char usedLetters[tryAllowed];
+    memset(usedLetters, 0,tryAllowed * sizeof(char));//initialisation de la memoire
+    
     
     do
     {
         // saisi utilisateur
         printf("votre lettre :");
         scanf(" %c",&userLetter);
+         
         
         if (letter_in_word(word,userLetter))
-            printf("ok");
-        
+            printf("ok \n");
+        else
+        {
+            usedLetters[try] = userLetter;
+            try++;
+        }
+        printf("%s \n\n",usedLetters);
     }
-    while (try>10);
+    while (try<10);
     
     
     printf("\n");
