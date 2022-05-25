@@ -56,7 +56,33 @@ void config (char *word,int *tryA) //configuration de la partie
 {
     printf("\nvotre mot : ");
     scanf(" %s",word);
-    printf ("nombre d'essai : ");
+    printf("nombre d'essai : ");
     scanf("%d",tryA);
     
 }
+
+void rndWord (char* word)
+{
+    {
+        int rng = rand()%10;
+        FILE* dico = NULL;
+        dico = fopen("dico.txt", "r");
+        if (dico != NULL)
+        {
+            while (rng-- >0)
+            {
+            fgets(word,MAX_WL,dico);
+            word[strlen(word)-1] = '\0';//fgets reads the entire line including the \n, here we remove it
+            for(int i=0;i<strlen(word);i++)
+                word[i] = tolower(word[i]);
+            }
+            fclose(dico);
+        }
+        else
+        {
+        printf("\nprobleme avec le fichier dictionaire \n");
+        }
+    }
+        return ;
+}
+

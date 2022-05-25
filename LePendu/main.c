@@ -7,23 +7,27 @@
 
 #include "lib.h"
 
+
 int main()
 {
-    char word[20] = "ats";
+    srand(time(0));
+    char word[MAX_WL] = "ats";
     int tryAllowed = 10;
 
     while (1)
     {
-    config (word,&tryAllowed);
+        //config (word,&tryAllowed);
+        rndWord(word);
     
-    int try = 0;
-    char userLetter = 0;
-    char usedLetters[tryAllowed];
-    memset(usedLetters, 0,tryAllowed * sizeof(char));//initialisation de la memoire
-    char drawnWord[strlen(word)];
-    memset(drawnWord,'_',strlen(word));//initialisation par les tiret
+        int try = 0;
+        char userLetter = 0;
+        char usedLetters[tryAllowed];
+        memset(usedLetters, 0,tryAllowed * sizeof(char));//initialisation de la memoire
+        char drawnWord[strlen(word)];
+        memset(drawnWord,'_',strlen(word));//initialisation par les tiret
     
-    
+        printall(drawnWord, usedLetters, try, tryAllowed);
+        
     do
     {
         // saisi utilisateur
