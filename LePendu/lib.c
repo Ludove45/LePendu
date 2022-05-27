@@ -38,41 +38,53 @@ bool word_complet (char* board) // verifié si l'on a gagnié
 
 void printall (char* board, char* list,int try,int tryA) //desinné l'interface
 {
-    printf("pas de : %s \n",list);
+    printf("\npas de : %s \n",list);
     printf("il vous reste : %d tentative \n",tryA - try);
     printf("%s \n\n",board);
     
 }
 
-void printResult (bool win) //anoncé les resulta
+void printResult (bool win,char* word) //anoncé les resulta
 {
     if (win)
-        printf("vous avez gagner !!");
+        printf("\nvous avez gagner !!\n");
     else
-        printf("vous avez perdu !!");
-}
-
-void config (char *word,int *tryA) //configuration de la partie
-{
-    printf("\nvotre mot : ");
-    scanf(" %s",word);
-    printf("nombre d'essai : ");
-    scanf("%d",tryA);
+        printf("\nvous avez perdu !!\n");
     
+    printf("le mots etais : %s\n\n",word);
 }
 
-void rndWord (char* word)
+void config (char *word,int *tryA,bool *rndp) //configuration de la partie
+{
+    char ans = 'n';
+    printf("\nvoulez-vous de l'aleatoire ? (o/n)");
+    scanf(" %c[o,n]",&ans);
+    if (ans == 'o' )
+    {
+        *rndp = true;
+    }
+    else //if (ans == 'n')
+    {
+        printf("\nvotre mot : ");
+        scanf(" %s",word);
+        *rndp = false;
+    }
+    printf("\nnombre d'essaie : ");
+    scanf("%d",tryA);
+}
+
+void rndWord (char* word) //generateur de mots aléatoire
 {
     {
-        int rng = rand()%10;
+        int rng = rand()%30;
         FILE* dico = NULL;
         dico = fopen("dico.txt", "r");
         if (dico != NULL)
         {
-            while (rng-- >0)
+            while (rng-- > 0)
             {
             fgets(word,MAX_WL,dico);
-            word[strlen(word)-1] = '\0';//fgets reads the entire line including the \n, here we remove it
+            word[strlen(word)-1] = '\0';//fgets lit aussi le retour a la ligne de fin donc on le retire
             for(int i=0;i<strlen(word);i++)
                 word[i] = tolower(word[i]);
             }
@@ -85,4 +97,3 @@ void rndWord (char* word)
     }
         return ;
 }
-

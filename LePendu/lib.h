@@ -15,14 +15,15 @@
 #include <time.h>
 #include <ctype.h>
 
+
 bool letter_in_word(char*,char);
 void letter_replace0 (char*,char,char*);
 bool word_complet (char*);
 void printall (char*, char*,int,int);
-void printResult (bool);
-void config (char*,int*);
-void rndWord (char*) ;
+void printResult (bool,char*);
+void config (char*,int*,bool*);
+void rndWord (char*);
 
-#define MAX_WL 20
+#define MAX_WL 28
 
 #endif /* lib_h */
